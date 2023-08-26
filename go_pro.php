@@ -1,4 +1,8 @@
-<?php echo wpautop('<p><span style="color: #ff0000;"><strong>У вас установлена бесплатная версия Saphali Woocommerce LITE</strong></span></p>
+<?php
+if (!defined('ABSPATH')) {
+	exit; // Don't access directly.
+};
+echo wpautop('<p><span style="color: #ff0000;"><strong>У вас установлена бесплатная версия Saphali Woocommerce LITE</strong></span></p>
 <p><strong>Плагин вносит в магазин следующие дополнения:</strong></p>
 <ol>
 <li>Улучшенная русская локализация Woocommerce.</li>
@@ -864,4 +868,3 @@
 	Мы открыты для ваших предложений. Ваши идеи, предложения и пожелания по улучшению Lite версии пишите на saphali@ukr.net. Возможно, именно Ваше предложение добавит новые возможности. Если вы заметили какие-либо неточности перевода или ошибки, сообщите нам об этом, и в ближайшее время исправления будут добавлены в плагин.</p>
 <p>
 	С уважением, администрация Saphali.com.</p>');
-?>

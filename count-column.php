@@ -1,4 +1,7 @@
-<?
+<?php
+if (!defined('ABSPATH')) {
+	exit; // Don't access directly.
+};
 if(isset($_POST['column_count_saphali'])) {
 	if(empty($_POST["clear"])) {
 			if(!empty($_POST["column_count_saphali"])) {
