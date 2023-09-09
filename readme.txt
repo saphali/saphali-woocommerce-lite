@@ -16,7 +16,8 @@ Adds Russian localization & special Tools in WooCommerce.
 == Description ==
 
 WooCommerce Lite! 
-Русскоязычные функциональные дополнения для Woocommerce - специально для русскоязычного рынка.
+Функциональные дополнения для Woocommerce - специально для управления полями на странице оформления заказа.
+Functional addons for Woocommerce - specifically for managing fields on the checkout page.
 
 = Интегрирует в магазин: =
 * Русский интерфейс. <strong>Важное замечание!</strong>
@@ -69,7 +70,7 @@ QIWI, Приват24, LiqPay, WebMoney!
 == Changelog ==
 
 = 1.9.0 =
-* Fix.
+* Fix nonce check.
 
 = 1.8.13 =
 * Добавлен фильтр для обработки полей с типом select, radio.

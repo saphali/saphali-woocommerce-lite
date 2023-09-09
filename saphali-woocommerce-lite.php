@@ -74,6 +74,9 @@ WC tested up to: 6.6
 		
 		if( !( isset($_GET['page']) && $_GET['page'] == 'woocommerce_saphali_s_l' ) ) {
 			// Hook in
+			if($_POST && !wp_verify_nonce( $_POST['_wpnonce'], 'fields-nonce') ){
+				die('Неуспешная верификация');
+			}
 			add_filter( 'woocommerce_checkout_fields' , array($this,'saphali_custom_override_checkout_fields') );
 			add_filter( 'wp' , array($this,'wp') );
 
@@ -353,7 +356,7 @@ public function woocommerce_checkout_posted_data( $data ) {
 			}
 		}
 		if($is_e &&  !version_compare( WOOCOMMERCE_VERSION, '3.0.0', '<' ) ) {
-			if(empty( $errors->errors["required-field"] ) )
+			if(is_object($errors) && empty( $errors->errors["required-field"] ) )
 				$errors->remove( 'required-field' );
 		}
 	}
@@ -1319,6 +1322,7 @@ public function woocommerce_checkout_posted_data( $data ) {
 			<input type="submit" class="button alignleft" value="<?php _e('Save') ?>"/>
 			</form>
 			<form action="" method="post">
+				<input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('fields-nonce'); ?>">
 				<input type="hidden" name="reset" value="All"/>
 				<input type="submit" class="button alignright" value="Восстановить поля по умолчанию"/>
 			</form>
@@ -2026,6 +2030,8 @@ public function woocommerce_checkout_posted_data( $data ) {
 add_action('plugins_loaded', 'woocommerce_lang_s_l', 0);
 if ( ! function_exists( 'woocommerce_lang_s_l' ) ) {
 	function woocommerce_lang_s_l() {
+		if ( ! defined( 'WOOCOMMERCE_VERSION' ) )
+			return;
 		$lite = new saphali_lite();
 		if( is_admin() )
 		add_action( 'admin_enqueue_scripts',  array( $lite, 'admin_enqueue_scripts_page_saphali' ) );
