@@ -42,11 +42,9 @@ wp-content/languages/plugins/woocommerce-admin-ru_RU.mo (админ часть),
 
 <strong>ВНИМАНИЕ!</strong>
 
-Вы можете подключить к магазину все самые популярные платежные системы:
-QIWI, Приват24, LiqPay, WebMoney!
 Подробнее о плагинах платежных шлюзов: http://saphali.com/wordpress/payment-gateways
 
-Другие русские плагины для интернет-магазина на Woocommerce смотрите в нашем каталоге http://saphali.com/wordpress/woocommerce-plugins
+Другие плагины для интернет-магазина на Woocommerce смотрите в нашем каталоге http://saphali.com/wordpress/woocommerce-plugins
 
 == Installation ==
 
