@@ -3,13 +3,13 @@
 Plugin Name: Saphali Woocommerce Lite
 Plugin URI: http://saphali.com/saphali-woocommerce-plugin-wordpress
 Description: Saphali Woocommerce Lite - это бесплатный вордпресс плагин, который добавляет набор дополнений к интернет-магазину на Woocommerce.
-Version: 1.9.0
+Version: 1.9.1
 Author: Saphali
 Author URI: http://saphali.com/
 Text Domain: saphali-woocommerce-lite
 Domain Path: /languages
 WC requires at least: 1.6.6
-WC tested up to: 6.6
+WC tested up to: 8.1
 */
 
 
@@ -38,7 +38,7 @@ WC tested up to: 6.6
   
   // Подключение валюты и локализации
  define('SAPHALI_PLUGIN_DIR_URL',plugin_dir_url(__FILE__));
- define('SAPHALI_LITE_VERSION', '1.9.0' );
+ define('SAPHALI_LITE_VERSION', '1.9.1' );
  define('SAPHALI_PLUGIN_DIR_PATH',plugin_dir_path(__FILE__));
  class saphali_lite {
  var $email_order_id;
@@ -72,11 +72,9 @@ WC tested up to: 6.6
 		add_filter( 'woocommerce_order_formatted_billing_address',  array($this,'formatted_billing_address') , 10 , 2); 
 		add_filter( 'woocommerce_order_formatted_shipping_address',  array($this,'formatted_shipping_address') , 10 , 2); 
 		
-		if( !( isset($_GET['page']) && $_GET['page'] == 'woocommerce_saphali_s_l' ) ) {
+		if( !( isset($_GET['page']) && $_GET['page'] === 'woocommerce_saphali_s_l' ) ) {
 			// Hook in
-			if($_POST && !wp_verify_nonce( $_POST['_wpnonce'], 'fields-nonce') ){
-				die('Неуспешная верификация');
-			}
+			
 			add_filter( 'woocommerce_checkout_fields' , array($this,'saphali_custom_override_checkout_fields') );
 			add_filter( 'wp' , array($this,'wp') );
 
@@ -109,6 +107,10 @@ WC tested up to: 6.6
 						});	
 					}
 				}
+			}
+		} else {
+			if($_POST && !wp_verify_nonce( $_POST['_wpnonce'], 'fields-nonce') ){
+				die('Неуспешная верификация');
 			}
 		}
 		add_filter( 'woocommerce_currencies',  array($this,'add_inr_currency') , 11);
