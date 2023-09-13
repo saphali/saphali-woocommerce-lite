@@ -722,7 +722,7 @@ public function woocommerce_checkout_posted_data( $data ) {
 			if( version_compare( WOOCOMMERCE_VERSION, '2.5.2', '<' ) || SAPHALI_LITE_SYMBOL )
 			switch( $currency ) {
 				case 'UAH': $symbol = '&#x433;&#x440;&#x43D;.'; break;
-				case 'RUB': if( is_admin() ) $symbol = '&#x440;&#x443;&#x431;.'; else $symbol = '<span class=rur >&#x440;<span>&#x443;&#x431;.</span></span>'; break;
+				// case 'RUB': if( is_admin() ) $symbol = '&#x440;&#x443;&#x431;.'; else $symbol = '<span class=rur >&#x440;<span>&#x443;&#x431;.</span></span>'; break;
 				case 'RUR': $symbol = '&#x440;&#x443;&#x431;.'; break;
 				case 'BYN': $symbol = '&#x440;&#x443;&#x431;.'; break;
 				case 'BYR': $symbol = '&#x440;&#x443;&#x431;.'; break;
